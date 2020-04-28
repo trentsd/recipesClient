@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "recipesClient": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "recipesClient"
+    }
+  },
+  "defaultProject": "recipesClient",
+  "cli": {
+    "analytics": "30715867-0d2b-4630-8915-f9f5332811c3"
+  }
 }
