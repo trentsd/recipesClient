@@ -1,1 +1,9 @@
-<p>page works!</p>
+<div *ngIf="page">
+  <h1>{{ page.pageName }}</h1>
+  <br />
+  <img src="assets/recipe-images/{{ page.imageName }}">
+</div>
+<div *ngIf="!page">
+ No page found
+</div>
+<br />
