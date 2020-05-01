@@ -1,0 +1,52 @@
+[
+  {
+    "id": 0,
+    "pageName": "Title",
+    "imageName": "00TitlePage.jpg"
+  },
+  {
+    "id": 1,
+    "pageName": "Prologue",
+    "imageName": "01Prologue.jpg"
+  },
+  {
+    "id": 2,
+    "pageName": "Louisiana and Caribbean Recipes",
+    "imageName": "02ToCLouisianaCarribbean.jpg"
+  },
+  {
+    "id": 3,
+    "pageName": "More Favorite Recipes",
+    "imageName": "03ToCMore.jpg"
+  },
+  {
+    "id": 4,
+    "pageName": "Boeuf Bourguignon (Burgundy Beef)",
+    "imageName": "04BoeufBourguignon.jpg"
+  },
+  {
+    "id": 5,
+    "pageName": "Cabbage Francais",
+    "imageName": "05CabbageFrancais.jpg"
+  },
+  {
+    "id": 6,
+    "pageName": "Whole Stuffed Cabbage",
+    "imageName": "06WholeStuffedCabbage.jpg"
+  },
+  {
+    "id": 7,
+    "pageName": "Bacon Fried Carrots",
+    "imageName": "07BaconFriedCarrots.jpg"
+  },
+  {
+    "id": 8,
+    "pageName": "Carrots Marsala a la Big Dad",
+    "imageName": "08CarrotsMarsala.jpg"
+  },
+  {
+    "id": 9,
+    "pageName": "Chicken Jambalaya",
+    "imageName": "09ChickenJambalaya.jpg"
+  }
+]
