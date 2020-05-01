@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { IPage } from '../shared/interfaces'
 
+//Simply fetches data from a static json. This must be updated when switching to a RESTful service
 @Injectable()
 export class DataService {
 
