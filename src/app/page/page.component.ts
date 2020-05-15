@@ -31,7 +31,6 @@ export class PageComponent implements OnInit {
         this.page = page;
       });
     });
-
   }
 
 }

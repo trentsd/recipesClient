@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { IPage } from '../shared/interfaces'
+import { IPage, IComment } from '../shared/interfaces'
 
 //Simply fetches data from a static json. This must be updated when switching to a RESTful service
 @Injectable()
@@ -32,8 +32,8 @@ export class DataService {
         )
     }
 
-    getAllComments(): Observable<any> {
-      return this.http.get('//localhost:8080/comments')
+    getAllComments(): Observable<IComment[]> {
+      return this.http.get<IComment[]>('//localhost:8080/comments')
         .pipe(
           catchError(this.handleError)
        );
