@@ -36,6 +36,10 @@ export class DataService {
       return this.http.get('//localhost:8080/comments');
     }
 
+    getCommentsForThisPage(id: number) : Observable<any> {
+      return this.http.get('//localhost:8080/page/' + id.toString());
+    }
+
     private handleError(error: any) {
       console.error('server error:', error);
       if (error.error instanceof Error) {
