@@ -32,11 +32,8 @@ export class DataService {
         )
     }
 
-    getAllComments(): Observable<IComment[]> {
-      return this.http.get<IComment[]>('//localhost:8080/comments')
-        .pipe(
-          catchError(this.handleError)
-       );
+    getAllComments(): Observable<any> {
+      return this.http.get('//localhost:8080/comments');
     }
 
     private handleError(error: any) {

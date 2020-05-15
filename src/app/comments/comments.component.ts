@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DataService } from '../core/data.service';
+import { IComment } from '../shared/interfaces';
+
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  constructor() { }
+  comments: Array<any>;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.dataService.getAllComments().subscribe(data => {
+      this.comments = data;
+    });
   }
 
 }
