@@ -1,5 +1,19 @@
 <h2>COMMENTS</h2>
 <br />
 <div *ngFor="let comment of comments">
-  {{comment.name}}
+  <mat-card class="comment-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="placeholder"></div> -->
+      <mat-card-title>{{comment.name}}</mat-card-title>
+    </mat-card-header>
+    <!-- <img mat-card-image src="" alt=""> -->
+    <mat-card-content>
+      <p>
+        {{comment.content}}
+      </p>
+    </mat-card-content>
+    <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+    </mat-card-actions> -->
+  </mat-card>
 </div>

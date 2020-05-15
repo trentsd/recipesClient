@@ -14,8 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 import { CommentsModule } from './comments/comments.module';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
