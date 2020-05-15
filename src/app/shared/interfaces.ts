@@ -3,3 +3,10 @@ export interface IPage {
   pageName: string;
   imageName: string;
 }
+
+export interface IComment {
+  id: number;
+  pageid: number;
+  name: string;
+  content: string;
+}
