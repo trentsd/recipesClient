@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { CommentEditComponent } from './comments/comment-edit/comment-edit.component';
 
 const routes: Routes = [
   //temporary homepage while testing pages
@@ -13,6 +13,15 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'page'
+  },
+  //comment-edit is not lazy-loaded
+  {
+    path: 'comment-add/:pageid',
+    component: CommentEditComponent
+  },
+  {
+    path: 'comment-edit/:pageid/:id',
+    component: CommentEditComponent
   }
 ];
 

@@ -6,11 +6,12 @@ import { map, catchError } from 'rxjs/operators';
 
 import { IPage, IComment } from '../shared/interfaces'
 
-//Simply fetches data from a static json. This must be updated when switching to a RESTful service
+//Pages are fetched from a static JSON in assets folder because they do not change
+//Comments are fetched from RESTful calls to server provided by Spring Boot
 @Injectable()
 export class DataService {
 
-  //
+  //THESE VALUES WILL CHANGE WHEN DEPLOYED TO HEROKU
   public API = '//localhost:8080';
   public COMMENTS_API = this.API + '/comments';
 
@@ -36,21 +37,26 @@ export class DataService {
   }
 
   getAllComments(): Observable<any> {
-    return this.http.get(this.API + this.COMMENTS_API);
+    return this.http.get(this.COMMENTS_API);
   }
 
   getCommentsForThisPage(id: number) : Observable<any> {
     return this.http.get(this.API + '/page/' + id.toString());
   }
 
-  // saveComment(comment: any): Observable<any> {
-  //   let result: Observable<any>;
-  //   if (comment['href']) {
-  //     result = this.http.put(comment.href, comment);
-  //   } else {
-  //     result = this.http.post()
-  //   }
-  // }
+  saveComment(comment: any): Observable<any> {
+    let result: Observable<any>;
+    if (comment['href']) {
+      result = this.http.put(comment.href, comment);
+    } else {
+      result = this.http.post(this.COMMENTS_API, comment);
+    }
+    return result;
+  }
+
+  removeComment(href: string) {
+    return this.http.delete(href);
+  }
 
   private handleError(error: any) {
     console.error('server error:', error);
