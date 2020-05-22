@@ -25,11 +25,11 @@ export class DataService {
         );
     }
 
-  getPage(id: number) : Observable<IPage> {
+  getPage(pageId: number) : Observable<IPage> {
     return this.http.get<IPage[]>(this.baseUrl + 'pages.json')
       .pipe(
         map(pages => {
-          let page = pages.filter((ipage: IPage) => ipage.id === id);
+          let page = pages.filter((ipage: IPage) => ipage.id === pageId);
           return (page && page.length) ? page[0] : null;
         }),
         catchError(this.handleError)
@@ -40,8 +40,19 @@ export class DataService {
     return this.http.get(this.COMMENTS_API);
   }
 
-  getCommentsForThisPage(id: number) : Observable<any> {
-    return this.http.get(this.API + '/page/' + id.toString());
+  getCommentsForThisPage(pageId: number) : Observable<any> {
+    return this.http.get(this.API + '/page/' + pageId.toString());
+  }
+
+  getSpecificComment(commentId: number) : Observable<any> {
+    return this.http.get(this.COMMENTS_API + '/' + commentId);
+      // .pipe(
+      //   map(comments => {
+      //     let comment = comments.filter((icomment: IComment) => icomment.id === commentId);
+      //     return (comment && comment.length) ? comment[0] : null;
+      //   }),
+      //   catchError(this.handleError)
+      // )
   }
 
   saveComment(comment: any): Observable<any> {

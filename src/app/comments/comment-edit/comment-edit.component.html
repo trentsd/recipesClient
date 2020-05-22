@@ -1,1 +1,40 @@
-<p>comment-edit works!</p>
+<mat-card>
+  <form #commentForm="ngForm" (ngSubmit)="saveComment(commentForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{ comment.id ? 'EDIT' : 'ADD' }} COMMENT</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="comment.href">
+      <input type="hidden" name="pageid" [(ngModel)]="comment.pageid">
+      <input type="hidden" name="id" [(ngModel)]="comment.id">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="comment.name" required name="name" #name>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <textarea matInput [(ngModel)]="comment.content" name="content" #content></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!commentForm.form.valid">Save</button>
+      <button mat-raised-button color="secondary" (click)="removeComment(comment.href)" *ngIf="comment.href" type="button">Delete</button>
+      <a mat-button href="/page/{{ pageId }}">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>
+
+
+
+
+<br />
+<h1>PAGE {{ pageId }}</h1>
+<h2>{{ commentId ? 'Edit' : 'Add' }}</h2>
+<div *ngIf="comment">
+  <h3>{{ comment.href }}</h3>
+  <h3>{{ comment.id }}</h3>
+  <h3>{{ comment.name }}</h3>
+  <h3>{{ comment.content }}</h3>
+</div>
+
