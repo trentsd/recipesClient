@@ -39,7 +39,7 @@ export class CommentEditComponent implements OnInit {
   }
 
   goToPage() {
-    this.router.navigate([`/page/'${this.pageId}'`]);
+    this.router.navigate([`/page/${this.pageId}`]);
   }
 
   saveComment(form: NgForm) {
