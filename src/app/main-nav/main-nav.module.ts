@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 
+import { SearchBarModule } from './search-bar/search-bar.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatListModule,
     RouterModule,
+    SearchBarModule
   ],
   exports: [ MainNavComponent ]
 })
