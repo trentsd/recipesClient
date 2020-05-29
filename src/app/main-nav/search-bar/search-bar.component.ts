@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { IPage } from 'src/app/shared/interfaces';
+import { DataService } from 'src/app/core/data.service';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,14 +13,21 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
+  pages: IPage[];
+  // @Input() _pages: IPage[];
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
 
-  constructor() { }
+  constructor(private dataService: DataService,
+              private router: Router) { }
 
   ngOnInit() {
+
+    this.dataService.getPages()
+    .subscribe((dataPages: IPage[]) => this.options = dataPages.map(page => page.pageName));
+
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -29,4 +40,9 @@ export class SearchBarComponent implements OnInit {
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
+
+  goToPage() {
+
+  }
+
 }
