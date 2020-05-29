@@ -1,4 +1,4 @@
-<form class="search-bar-form" (ngSubmit)="goToPage()">
+<form class="search-bar-form">
   <mat-form-field class="search-bar-full-width">
     <input type="text"
            placeholder="Search"
@@ -6,13 +6,11 @@
            matInput
            [formControl]="myControl"
            [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        <a href="/page/1">{{ option }}</a>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="goToPage($event.option.value)">
+      <mat-option *ngFor="let option of filteredOptions | async"
+        [value]="option">
+        {{ option.pageName }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </form>
-<!-- <div *ngFor="let option of options">
-  <p>{{option}}</p>
-</div> -->
