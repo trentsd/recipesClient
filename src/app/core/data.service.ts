@@ -12,7 +12,7 @@ import { IPage, IComment } from '../shared/interfaces'
 export class DataService {
 
   //API === //localhost:8080 when running locally
-  public API = '//recipeserverprod-env.eba-aegpxm7g.us-east-2.elasticbeanstalk.com';
+  public API = 'http://recipeserverprod-env.eba-aegpxm7g.us-east-2.elasticbeanstalk.com';
   public COMMENTS_API = this.API + '/comments';
 
   baseUrl: string = 'assets/';
