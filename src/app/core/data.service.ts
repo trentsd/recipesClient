@@ -11,8 +11,8 @@ import { IPage, IComment } from '../shared/interfaces'
 @Injectable()
 export class DataService {
 
-  //THESE VALUES WILL CHANGE WHEN DEPLOYED TO HEROKU
-  public API = '//localhost:8080';
+  //API === //localhost:8080 when running locally
+  public API = '//recipeserverprod-env.eba-aegpxm7g.us-east-2.elasticbeanstalk.com/';
   public COMMENTS_API = this.API + '/comments';
 
   baseUrl: string = 'assets/';
