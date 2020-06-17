@@ -61,3 +61,18 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+//aws-amplify installed via npm
+import Amplify, { API } from 'aws-amplify';
+
+//Manually configured AWS Resource configuration. Auth can be added here later
+Amplify.configure({
+  API: {
+    endpoints: [
+      {
+        name: "recipe-server-prod",
+        endpoint: "http://recipeserverprod-env.eba-aegpxm7g.us-east-2.elasticbeanstalk.com"
+      }
+    ]
+  }
+});
