@@ -12,7 +12,7 @@ import { IPage, IComment } from '../shared/interfaces'
 export class DataService {
 
   //API === //localhost:8080 when running locally
-  public API = 'http://api.bigdadrecipes.com';
+  public API = 'https://api.bigdadrecipes.com';
   public COMMENTS_API = this.API + '/comments';
 
   baseUrl: string = 'assets/';
